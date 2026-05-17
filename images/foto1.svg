@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#283048"/><stop offset="1" stop-color="#859398"/></linearGradient></defs>
+  <rect width="1800" height="1200" fill="url(#g)"/>
+  <circle cx="1380" cy="260" r="180" fill="rgba(255,255,255,0.20)"/>
+  <path d="M0 850 C320 700 520 760 760 650 C1040 520 1320 660 1800 470 L1800 1200 L0 1200 Z" fill="rgba(255,255,255,0.20)"/>
+  <path d="M0 980 C360 780 680 900 920 780 C1180 650 1480 790 1800 680 L1800 1200 L0 1200 Z" fill="rgba(0,0,0,0.18)"/>
+  <text x="90" y="1080" font-family="system-ui, sans-serif" font-size="54" fill="rgba(255,255,255,0.72)">Placeholder foto 1</text>
+</svg>
