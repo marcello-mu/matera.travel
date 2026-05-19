@@ -10,6 +10,11 @@ body {
   background: #000;
 }
 
+button,
+input {
+  font: inherit;
+}
+
 .hero {
   position: relative;
   width: 100%;
@@ -58,7 +63,7 @@ body {
 .eyebrow {
   margin: 0 0 0.75rem;
   font-size: clamp(0.78rem, 1.5vw, 0.95rem);
-  letter-spacing: 0.16em;
+  letter-spacing: 0;
   text-transform: uppercase;
   opacity: 0.78;
 }
@@ -69,7 +74,7 @@ body {
   font-size: clamp(2.5rem, 8vw, 6rem);
   line-height: 0.95;
   font-weight: 750;
-  letter-spacing: -0.055em;
+  letter-spacing: 0;
 }
 
 .subtitle {
@@ -104,6 +109,470 @@ body {
   text-decoration: underline;
 }
 
+.legal-nav {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 4;
+}
+
+.legal-nav a,
+.cookie-banner a,
+.cookie-policy a,
+.policy-shell a {
+  color: inherit;
+}
+
+.cookie-banner a,
+.cookie-policy a {
+  font-weight: 700;
+}
+
+.policy-shell a:not(.policy-back) {
+  color: #0f766e;
+  font-weight: 700;
+}
+
+.legal-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(0, 0, 0, 0.36);
+  text-decoration: none;
+  backdrop-filter: blur(4px);
+}
+
+.legal-nav a:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.legal-nav a:focus-visible {
+  outline: 3px solid #5eead4;
+  outline-offset: 3px;
+}
+
+.button {
+  min-height: 2.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.48);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.button:focus-visible,
+.privacy-toggle:focus-visible,
+.cookie-dialog__close:focus-visible,
+#analytics-consent:focus-visible {
+  outline: 3px solid #5eead4;
+  outline-offset: 3px;
+}
+
+.button--primary {
+  color: #111827;
+  border-color: #f9fafb;
+  background: #f9fafb;
+  font-weight: 700;
+}
+
+.button--primary:hover {
+  background: #ccfbf1;
+  border-color: #ccfbf1;
+}
+
+.cookie-banner {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1rem;
+  color: #fff;
+  background: rgba(10, 16, 24, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  box-shadow: 0 1.25rem 3rem rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(14px);
+}
+
+.cookie-banner[hidden],
+.cookie-dialog[hidden] {
+  display: none;
+}
+
+.cookie-banner:not([hidden]) ~ .privacy-toggle {
+  display: none;
+}
+
+.cookie-banner__text p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.cookie-banner__text p + p {
+  margin-top: 0.35rem;
+}
+
+.cookie-banner__title {
+  font-weight: 750;
+}
+
+.cookie-banner__actions,
+.cookie-dialog__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  justify-content: flex-end;
+}
+
+.privacy-toggle {
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 4;
+  min-height: 2.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(0, 0, 0, 0.36);
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+
+.privacy-toggle:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.cookie-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.62);
+}
+
+.cookie-dialog__panel {
+  position: relative;
+  width: min(100%, 620px);
+  max-height: min(760px, calc(100vh - 2rem));
+  overflow: auto;
+  padding: 1.5rem;
+  color: #172033;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.42);
+}
+
+.cookie-dialog__close {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 0;
+  border-radius: 8px;
+  color: #172033;
+  background: #eef2f7;
+  cursor: pointer;
+}
+
+.cookie-dialog__eyebrow {
+  margin: 0 0 0.35rem;
+  color: #0f766e;
+  font-size: 0.84rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.cookie-dialog h2,
+.cookie-dialog h3,
+.cookie-dialog p {
+  margin-top: 0;
+}
+
+.cookie-dialog h2 {
+  margin-bottom: 0.65rem;
+  padding-right: 2.5rem;
+  font-size: 1.6rem;
+  line-height: 1.15;
+}
+
+.cookie-dialog__intro,
+.cookie-policy p,
+.cookie-option p,
+.cookie-option__description {
+  color: #536071;
+  line-height: 1.45;
+}
+
+.cookie-option {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #d9e2ec;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.cookie-option h3,
+.cookie-option__title {
+  display: block;
+  margin: 0 0 0.3rem;
+  color: #172033;
+  font-size: 1rem;
+  font-weight: 750;
+}
+
+.cookie-option p,
+.cookie-option__description {
+  display: block;
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.cookie-option span:last-child {
+  white-space: nowrap;
+  color: #0f766e;
+  font-weight: 750;
+}
+
+.cookie-option--interactive {
+  cursor: pointer;
+}
+
+#analytics-consent {
+  width: 1.35rem;
+  height: 1.35rem;
+  accent-color: #0f766e;
+}
+
+.cookie-policy {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #d9e2ec;
+}
+
+.cookie-policy h3 {
+  margin-bottom: 0.45rem;
+  color: #172033;
+  font-size: 1rem;
+}
+
+.cookie-policy p {
+  margin-bottom: 0.7rem;
+  font-size: 0.92rem;
+}
+
+.cookie-dialog__actions {
+  margin-top: 1.25rem;
+}
+
+.cookie-dialog .button--ghost {
+  color: #172033;
+  border-color: #cbd5e1;
+  background: #fff;
+}
+
+.cookie-dialog .button--ghost:hover {
+  background: #f1f5f9;
+}
+
+.cookie-dialog .button--primary {
+  color: #fff;
+  border-color: #0f766e;
+  background: #0f766e;
+}
+
+.cookie-dialog .button--primary:hover {
+  border-color: #115e59;
+  background: #115e59;
+}
+
+.policy-page {
+  min-height: 100%;
+  color: #172033;
+  background: #f7fafc;
+}
+
+.policy-shell {
+  width: min(100% - 2rem, 920px);
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+.policy-back {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.4rem;
+  margin-bottom: 2rem;
+  color: #0f766e;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.policy-back:hover {
+  text-decoration: underline;
+}
+
+.policy-header {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #d9e2ec;
+}
+
+.policy-kicker {
+  margin: 0 0 0.45rem;
+  color: #0f766e;
+  font-size: 0.85rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.policy-header h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2.2rem, 6vw, 4.4rem);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.policy-header p,
+.policy-section p,
+.policy-alert p,
+.policy-section li,
+.policy-alert dd {
+  color: #536071;
+  line-height: 1.6;
+}
+
+.policy-alert,
+.policy-section {
+  padding: 1.65rem 0;
+  border-bottom: 1px solid #d9e2ec;
+}
+
+.policy-alert {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #d8b14a;
+  border-radius: 8px;
+  background: #fff8db;
+}
+
+.policy-alert h2,
+.policy-section h2,
+.policy-section h3,
+.policy-section p {
+  margin-top: 0;
+}
+
+.policy-alert h2,
+.policy-section h2 {
+  margin-bottom: 0.8rem;
+  color: #172033;
+  font-size: 1.55rem;
+  line-height: 1.2;
+}
+
+.policy-section h3 {
+  margin-bottom: 0.45rem;
+  color: #172033;
+  font-size: 1.08rem;
+  line-height: 1.35;
+}
+
+.policy-section h3:not(:first-child) {
+  margin-top: 1.35rem;
+}
+
+.policy-alert dl {
+  display: grid;
+  gap: 0.65rem;
+  margin: 1rem 0 0;
+}
+
+.policy-alert dl div {
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.policy-alert dt {
+  color: #4a3413;
+  font-weight: 750;
+}
+
+.policy-alert dd {
+  margin: 0;
+}
+
+.policy-section ul {
+  margin: 0.5rem 0 1rem;
+  padding-left: 1.2rem;
+}
+
+.policy-table-wrapper {
+  overflow-x: auto;
+  margin: 1rem 0;
+  border: 1px solid #d9e2ec;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.policy-table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+.policy-table-wrapper th,
+.policy-table-wrapper td {
+  padding: 0.85rem;
+  border-bottom: 1px solid #d9e2ec;
+  text-align: left;
+  vertical-align: top;
+}
+
+.policy-table-wrapper th {
+  color: #172033;
+  background: #eef2f7;
+  font-weight: 750;
+}
+
+.policy-table-wrapper tr:last-child td {
+  border-bottom: 0;
+}
+
+.policy-page code {
+  border-radius: 4px;
+  padding: 0.08rem 0.25rem;
+  color: #115e59;
+  background: #e6fffb;
+}
+
 @keyframes kenburns {
   0% {
     transform: scale(1) translate(0, 0);
@@ -128,6 +597,50 @@ body {
     right: 1rem;
     text-align: center;
     font-size: 0.75rem;
+  }
+
+  .privacy-toggle {
+    bottom: 4.25rem;
+  }
+
+  .legal-nav {
+    top: 0.75rem;
+    right: 0.75rem;
+    left: 0.75rem;
+    text-align: center;
+  }
+
+  .legal-nav a {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .cookie-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .cookie-banner__actions,
+  .cookie-dialog__actions {
+    justify-content: stretch;
+  }
+
+  .cookie-banner__actions .button,
+  .cookie-dialog__actions .button {
+    flex: 1 1 100%;
+  }
+
+  .cookie-option {
+    grid-template-columns: 1fr;
+  }
+
+  .policy-shell {
+    width: min(100% - 1.5rem, 920px);
+    padding-top: 1.25rem;
+  }
+
+  .policy-alert dl div {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
   }
 }
 

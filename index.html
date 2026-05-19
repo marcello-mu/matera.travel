@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Matera, la città scavata, la storia che emerge.</title>
   <meta name="description" content="La città scavata, la storia che emerge.">
   <link rel="stylesheet" href="style.css">
@@ -69,6 +70,61 @@
 
     <div class="credit" id="photo-credit" aria-live="polite"></div>
   </main>
+
+  <nav class="legal-nav" aria-label="Link privacy">
+    <a href="privacy.html">Informativa privacy e cookie</a>
+  </nav>
+
+  <aside class="cookie-banner" id="cookie-banner" aria-labelledby="cookie-banner-title" hidden>
+    <div class="cookie-banner__text">
+      <p class="cookie-banner__title" id="cookie-banner-title">Privacy e cookie</p>
+      <p>Usiamo cookie tecnici per salvare la tua scelta. Google Analytics viene attivato solo se acconsenti ai cookie analitici. Le immagini sono caricate da Pexels. <a href="privacy.html">Leggi l'informativa</a>.</p>
+    </div>
+    <div class="cookie-banner__actions" aria-label="Scelte cookie">
+      <button class="button button--ghost" type="button" data-cookie-reject>Rifiuta analytics</button>
+      <button class="button button--ghost" type="button" data-open-cookie-preferences>Preferenze</button>
+      <button class="button button--ghost" type="button" data-cookie-accept>Accetta analytics</button>
+    </div>
+  </aside>
+
+  <button class="privacy-toggle" type="button" data-open-cookie-preferences>Privacy e cookie</button>
+
+  <div class="cookie-dialog" id="cookie-preferences" role="dialog" aria-modal="true" aria-labelledby="cookie-preferences-title" hidden>
+    <div class="cookie-dialog__panel">
+      <button class="cookie-dialog__close" type="button" data-close-cookie-preferences aria-label="Chiudi preferenze">&times;</button>
+
+      <p class="cookie-dialog__eyebrow">Matera.travel</p>
+      <h2 id="cookie-preferences-title">Preferenze privacy</h2>
+      <p class="cookie-dialog__intro">Puoi cambiare scelta in qualsiasi momento. Senza consenso, Google Analytics non viene caricato.</p>
+
+      <div class="cookie-option">
+        <div>
+          <h3>Cookie tecnici</h3>
+          <p>Servono a ricordare questa preferenza sul dispositivo.</p>
+        </div>
+        <span>Sempre attivi</span>
+      </div>
+
+      <label class="cookie-option cookie-option--interactive" for="analytics-consent">
+        <span>
+          <span class="cookie-option__title">Google Analytics</span>
+          <span class="cookie-option__description">Misura visite e pagine viste con GA4, senza funzioni pubblicitarie.</span>
+        </span>
+        <input id="analytics-consent" type="checkbox">
+      </label>
+
+      <div class="cookie-policy">
+        <h3>Informativa breve</h3>
+        <p>Il sito usa immagini ospitate da Pexels e, solo con consenso, Google Analytics 4 con ID G-7WE1NRHQP3. La preferenza viene salvata in localStorage come impostazione tecnica per 180 giorni.</p>
+        <p><a href="privacy.html">Leggi l'informativa privacy e cookie completa</a>.</p>
+      </div>
+
+      <div class="cookie-dialog__actions">
+        <button class="button button--ghost" type="button" data-cookie-reject>Rifiuta</button>
+        <button class="button button--primary" type="button" data-cookie-save>Salva preferenze</button>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
